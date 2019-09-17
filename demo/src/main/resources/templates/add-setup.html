@@ -1,0 +1,11 @@
+<form action="#" th:action="@{/addSetup}" th:object="${setup}" method="post" xmlns:th="http://www.w3.org/1999/xhtml">
+    <label for="description">description</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="description">
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+
+    <label for="fileName">filename</label>
+    <input type="file" th:field="*{fileName}" id="fileName" placeholder="fileName">
+    <span th:if="${#fields.hasErrors('fileName')}" th:errors="*{fileName}"></span>
+
+    <input type="submit" value="Add setup">
+</form>

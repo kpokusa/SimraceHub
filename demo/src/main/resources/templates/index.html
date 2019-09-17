@@ -1,0 +1,23 @@
+<div th:switch="${setup}" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h2 th:case="null">No setups yet!</h2>
+    <div th:case="*">
+        <h2>Setups</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Opis</th>
+                <th>Nazwa pliku</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="setup : ${setup}">
+                <td th:text="${setup.description}"></td>
+                <td th:text="${setup.fileName}"></td>
+                <td><a th:href="@{/delete/{id}(id=${setup.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/registersetup">Add a new setup</a></p>
+</div>
